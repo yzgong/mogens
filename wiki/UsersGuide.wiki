@@ -48,41 +48,36 @@ The user interface is ordered in several sections, described in the following te
 
 === File setup ===
 
-[ssub:filesetup]
+*Fig. 3 The file setup section of the Blender UI*
+|| https://mogens.googlecode.com/svn/wiki/images/blenderfilesetup.png ||
 
-[h!] [[Image:figures/blenderfilesetup.png|image]] The file setup section of the Blender UI [appfig:blenderfilesetup]
-
-In this part of the user interface, you select the skeleton (ASF) file and one or more motion (AMC) files. Clicking the buttons will bring up a blender file dialog where you can browse your filesystems for the files you want to load. By adjusting the spinner labeled “Number of motions” (from 1 to 5), the number of AMC-file buttons will change, and when the number of motions is set to more than one, a new slider will also appear. With this slider you select the number of frames of transition between each motion, which will affect how the motion stitching is done. Figure [appfig:blenderfilesetup] shows the File setup section with “Number of motions” set to 5, but no files currently selected.
+In this part of the user interface, you select the skeleton (ASF) file and one or more motion (AMC) files. Clicking the buttons will bring up a blender file dialog where you can browse your filesystems for the files you want to load. By adjusting the spinner labeled _Number of motions_ (from 1 to 5), the number of AMC-file buttons will change, and when the number of motions is set to more than one, a new slider will also appear. With this slider you select the number of frames of transition between each motion, which will affect how the motion stitching is done. Fig. 3 shows the File setup section with _Number of motions_ set to 5, but no files currently selected.
 
 === Mesh setup ===
 
-[ssub:meshsetup]
+*Fig. 4 The mesh setup section of the Blender UI*
+|| https://mogens.googlecode.com/svn/wiki/images/blendermeshsetup.png ||
 
-[h!] [[Image:figures/blendermeshsetup.png|image]] The mesh setup section of the Blender UI [appfig:blendermeshsetup]
-
-This section, as seen in Figure [appfig:blendermeshsetup], determines the appearance of the animated character. There are two meshes (avatars) to choose between; male and female. In addition, you can choose to ignore outer joints. The outer joints, namely fingers and toes, are often “noisy” due to the way marker based motion capture is done. Enabling “Ignore outer joints” will make the motion appear smoother in those cases.
+This section, as seen in Fig. 4, determines the appearance of the animated character. In addition, you can choose to ignore outer joints. The outer joints, namely fingers and toes, are often noisy due to the way marker based motion capture is done. Enabling _Ignore outer joints_ will make the motion appear smoother in those cases.
 
 === Camera setup ===
 
-[ssub:camerasetup]
+*Fig. 5 The camera setup section of the Blender UI*
+|| https://mogens.googlecode.com/svn/wiki/images/blendercamerasetup.png ||
 
-[h!] [[Image:figures/blendercamerasetup.png|image]] The camera setup section of the Blender UI [appfig:blendercamerasetup]
+As seen in Fig. 5, this section has quite a lot of options compared to the others.
 
-As seen in Figure [appfig:blendercamerasetup], this section has quite a lot of options compared to the others.
+This section determines the number and placement of cameras. When the _Automatic setup_ button is selected, you can choose the number of cameras with the slider labeled _Number of cameras_. The cameras will be placed evenly along the latitude ([0, pi/2>) given by the _Latitude_ slider next to it, and at a distance given by the _Radius_ slider further down. All these cameras will point towards origo, and later when a simulation is loaded, they will point towards the center of the motion.
 
-This section determines the number and placement of cameras. When the “Automatic setup” button is selected, you can choose the number of cameras with the slider labeled “Number of cameras”. The cameras will be placed evenly along the latitude (<math>[0, \frac{\pi}{2}\rangle</math>) given by the “Latitude” slider next to it, and at a distance given by the “Radius” slider further down. All these cameras will point towards origo, and later when a simulation is loaded, they will point towards the center of the motion.
+With the next button row, ceiling cameras can be added. These cameras will be placed above the other cameras, and placed evenly along a given latitude. The latitude is given with the slider labeled _Ceiling latitude_ which will appear as soon as at least one ceiling camera has been added. The ceiling cameras’ placement will also be affected by the _Radius_ slider. The main difference between the ceiling cameras and the other cameras is that the ceiling cameras will point directly downwards (negative _z_-direction) instead of towards the center.
 
-With the next button row, ceiling cameras can be added. These cameras will be placed above the other cameras, and placed evenly along a given latitude. The latitude is given with the slider labeled “Ceiling latitude” which will appear as soon as at least one ceiling camera has been added. The ceiling cameras’ placement will also be affected by the “Radius” slider. The main difference between the ceiling cameras and the other cameras is that the ceiling cameras will point directly downwards (negative Z-direction) instead of towards the center.
+After setting the values described above, you can move the cameras to different positions in the 3D view. There’s a convenience button labeled _Select all cameras_ that will select all cameras in the current scene.
 
-After setting the values described above, you can move the cameras to different positions in the 3D view. There’s a convenience button labeled “Select all cameras” that will select all cameras in the current scene.
+If you wish to store the current camera setup you’ve made, click the _Export current setup_ button to get a save dialog. The camera setup will be saved in an xml-format that can be imported again later.
 
-If you wish to store the current camera setup you’ve made, click the “Export current setup” button to get a save dialog. The camera setup will be saved in an xml-format that can be imported again later.
-
-To import a previously saved camera setup, select the “Pre-saved setup” button. The camera selection buttons will be replaced by a button to load a pre-saved camera setup file and a label showing the currently loaded file (if any).
+To import a previously saved camera setup, select the _Pre-saved setup_ button. The camera selection buttons will be replaced by a button to load a pre-saved camera setup file and a label showing the currently loaded file (if any).
 
 === Render setup ===
-
-[ssub:rendersetup]
 
 [h!] [[Image:figures/blenderrendersetup.png|image]] The render setup section of the Blender UI [appfig:blenderrendersetup]
 
