@@ -27,9 +27,9 @@ To install the Blender module, copy the folder named <tt>mogens</tt> from the so
 
 Consult the Blender documentation for further help http://wiki.blender.org/index.php/Doc:Manual/Introduction/Installing_Blender/Python.
 
-== Installing MoGrapher ==
+== Installing !MoGrapher ==
 
-MoGrapher doesn’t really need installing. It’s just one python script file. It is located in the <tt>mographer</tt> directory in the source tree. Place it wherever you prefer. On Mac OSX and Linux, a logical place to put it would be <tt>~/bin/</tt> and make sure that directory is listed in your <tt>PATH</tt> environment variable. If you want to make it globally available on your system, then <tt>/usr/local/bin/</tt> is recommended. If you do install it to <tt>~/bin/</tt> or <tt>/usr/local/bin</tt>, remember to make the file executable, and it is recommended that you rename the file from <tt>mographer.py</tt> to <tt>mographer</tt>, after which you can execute it by running <tt>mographer</tt> in your shell.
+!MoGrapher doesn’t really need installing. It’s just one python script file. It is located in the <tt>mographer</tt> directory in the source tree. Place it wherever you prefer. On Mac OSX and Linux, a logical place to put it would be <tt>~/bin/</tt> and make sure that directory is listed in your <tt>PATH</tt> environment variable. If you want to make it globally available on your system, then <tt>/usr/local/bin/</tt> is recommended. If you do install it to <tt>~/bin/</tt> or <tt>/usr/local/bin</tt>, remember to make the file executable, and it is recommended that you rename the file from <tt>mographer.py</tt> to <tt>mographer</tt>, after which you can execute it by running <tt>mographer</tt> in your shell.
 
 = Usage =
 
@@ -90,7 +90,7 @@ In the Render setup section, as seen in Fig. 6, you specify original FPS and out
 *Fig. 7 The output setup section of the Blender UI*
 || https://mogens.googlecode.com/svn/wiki/images/blenderoutputsetup.png ||
 
-In the Output setup section, as seen in Fig. 7, you specify what folder/directory should be used to store the rendered silhouette images, the joint position files and the file containing camera positions. One subdirectory will be created for each camera, and the images rendered by each camera will be placed in it’s respective subdirectory. I addition, one <tt>camerapositions.xml</tt> file will be generated that contains the positions of the cameras in the scene, and a <tt>jointPositions-<armature name>.xml</tt> will be generated for each imported armature, containing the joint positions of each armature. In both these files, the _z_-axis will be pointing up.
+In the Output setup section, as seen in Fig. 7, you specify what folder/directory should be used to store the rendered silhouette images, the joint position files and the file containing camera positions. One subdirectory will be created for each camera, and the images rendered by each camera will be placed in it’s respective subdirectory. I addition, one <tt>calibration.xml</tt> file will be generated that contains the positions of the cameras in the scene, and a <tt>jointPositions-<armature name>.xml</tt> will be generated for each imported armature, containing the joint positions of each armature. In both these files, the _z_-axis will be pointing up.
 
 === Load simulation og Render scene ===
 
@@ -103,10 +103,10 @@ When the simulation is loaded, the _Render scene_ button becomes visible. Pressi
 
 == Using the graph module ==
 
-*Fig. 9 Empty !MoGrapher GUI*]
+*Fig. 9 Empty !MoGrapher GUI*
 || https://mogens.googlecode.com/svn/wiki/images/mographerstart.png ||
 
-To run the graph module, run the <tt>mographer.py</tt> Python script using Python. The window you see in Figure [fig:mographerstart] will appear. This user interface can be seen as consisting of four main sections; The top, the center, the bottom and the right section. The contents of each section are explained below.
+To run the graph module, run the <tt>mographer.py</tt> Python script using Python. The window you see in Fig. 9 will appear. This user interface can be seen as consisting of four main sections; The top, the center, the bottom and the right section. The contents of each section are explained below.
 
 === The top section ===
 
@@ -165,3 +165,9 @@ This system has some known issues that, mainly due to limited time, could not be
  * GM: Joint names aren’t sorted. When graphs have been generated in the graph module, the checkboxes in the right section will appear in arbitrary order. This makes it cumbersome to find and select the joints you are interested in.
  * GM: In the save dialog on Mac OSX, filetype must be typed in manually. When saving the graph on Mac OSX, the save dialog does not list the possible fileformats you can save as. The graph module uses file dialogs native to the system, and OSX’s file dialog unfortunately does not have this feature.
  * GM: Basenames used as keys. When reading and parsing files, the parsed data will be identified by the basename of each file. That means if two files in different locations have the same filename, only the last one will be stored.
+ * GM: Calculated mean and stdev for entire sequence are currently output to terminal. A new message text area should be added for these values to the right section of the UI.
+ * GM: The check boxes used for selecting curves are inelegant, and should be replaced by a list view.
+ * GM: The x-axis does not reset properly after generating a box plot.
+ * GM: Rendering of graph legend is currently disabled. A check box for turning this on/off should be added.
+ * GM: Errors in calculation of mean and stdev for entire sequence have been fixed. Calculations for each frame should be checked thoroughly.
+ * GM: There is a memory leak somewhere.
